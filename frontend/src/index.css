@@ -1,8 +1,12 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+}
 
 body {
-  font-family: 'Inter', sans-serif;
-  background-color: #f3f4f6; /* light gray for professionalism */
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  @apply text-gray-900 bg-white;
 }

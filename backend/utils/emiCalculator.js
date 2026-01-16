@@ -31,4 +31,18 @@ const generateEMISchedule = (amount, rate, tenure) => {
     return schedule;
 };
 
-module.exports = { calculateEMI, generateEMISchedule };
+/**
+ * Calculate Total Amount Payable (Principal + Interest)
+ */
+const calculateTotalAmount = (principal, annualRate, months) => {
+    const emiAmount = calculateEMI(principal, annualRate, months);
+    const totalAmount = emiAmount * months;
+    const totalInterest = totalAmount - principal;
+    return {
+        totalAmount: Math.round(totalAmount),
+        totalInterest: Math.round(totalInterest),
+        emiAmount: Math.round(emiAmount)
+    };
+};
+
+module.exports = { calculateEMI, generateEMISchedule, calculateTotalAmount };

@@ -4,5 +4,6 @@ const router = express.Router();
 
 router.post('/register', register);
 router.post('/login', login);
+router.post('/google', require('../controllers/authController').googleLogin);
 
 module.exports = router;

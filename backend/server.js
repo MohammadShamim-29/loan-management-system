@@ -6,9 +6,19 @@ const authRoutes = require('./routes/authRoutes');
 
 const app = express();
 
+
 // Middleware
 app.use(express.json());
 app.use(cors());
+
+
+// Default Route
+app.get('/', (req, res) => {
+    res.send('Loan Application System API is running...');
+});
+
+// Ignore favicon requests
+app.get('/favicon.ico', (req, res) => res.status(204).end());
 
 // Database Connection
 connectDB();

@@ -9,6 +9,8 @@ const loanSchema = new mongoose.Schema({
     status: { type: String, enum: ['pending', 'approved', 'rejected'], default: 'pending' },
     documents: [{ type: String }], // Array of file paths/URLs
     adminRemarks: { type: String, default: '' },
+    totalPayable: { type: Number },
+    totalInterest: { type: Number },
     emiSchedule: [{
         month: { type: Number }, // 1 to tenure
         dueDate: { type: Date },
